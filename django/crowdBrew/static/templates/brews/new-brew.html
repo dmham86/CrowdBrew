@@ -1,0 +1,51 @@
+<form role="form" ng-submit="vm.submit()">
+  <div class="form-group">
+    <label for="brew__name">Name</label>
+    <input class="form-control"
+              id="brew__name"
+              placeholder="Stanky Saison"
+              ng-model="vm.name">
+    </input>
+  </div>
+  <div class="form-group">
+    <label for="brew__description">Description</label>
+    <textarea class="form-control"
+              id="brew__description"
+              rows="3"
+              placeholder="ex. An IPA with Chinook hops as the base."
+              ng-model="vm.description">
+    </textarea>
+  </div>
+  <div class="form-group">
+    <label for="brew__style">Style</label>
+    <input class="form-control"
+              id="brew__style"
+              ng-model="vm.style">
+    </input>
+  </div>
+  <div class="form-group">
+    <label for="brew__type">Type</label>
+    <select class="form-control"
+              id="brew__type"
+              ng-model="vm.type">
+      <option value="Extract">Extract</option>
+      <option value="All-Grain">All-Grain</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="brew__abv">% ABV</label>
+    <input class="form-control"
+              id="brew__abv"
+              type="number"
+              min="0"
+              max="30"
+              ng-model="vm.abv">
+    </input>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </div>
+</form>

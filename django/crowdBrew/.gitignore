@@ -73,6 +73,7 @@ angular.js.tmproj
 /node_modules/
 bower_components/
 static/bower_components/
+static/admin
 angular.xcodeproj
 .idea
 *.iml
