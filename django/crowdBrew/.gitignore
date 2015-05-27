@@ -89,3 +89,5 @@ npm-debug.log
 ###### CUSTOM ####
 run-django.bat
 settings.py
+
+/static/images

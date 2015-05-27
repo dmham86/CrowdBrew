@@ -4,10 +4,12 @@
   angular
     .module('crowdBrew', [
       'thinkster',
+      'angularAwesomeSlider',
       'crowdBrew.config',
       'crowdBrew.routes',
       'crowdBrew.layout',
       'crowdBrew.brews',
+      'crowdBrew.tastings',
       'crowdBrew.profiles'
     ]);
 

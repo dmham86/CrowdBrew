@@ -1,0 +1,36 @@
+<form role="form" ng-submit="vm.submit()">
+  <div ng-show="!vm.brewSelected">
+    <div class="form-group">
+      <label for="tasting__brew">Find a Brew</label>
+      <autocomplete id="tasting__brew" ng-model="vm.brew" attr-placeholder="type to search brews..." data="brews" on-type="updateBrews" on-select="setBrew"></autocomplete>
+    </div>
+  </div>
+  <div ng-show="vm.brewSelected">
+    <div class="form-group">
+      <label for="tasting__appearance">Appearance</label>
+      <input class="form-control" id="tasting__appearance" ng-model="vm.appearance" type="text" slider options="{from:0, to:5, step:0.25}" />
+    </div>
+    <div class="form-group">
+      <label for="tasting__smell">Smell</label>
+      <input class="form-control" id="tasting__smell" ng-model="vm.smell" type="text" slider options="{from:0, to:5, step:0.25}" />
+    </div>
+    <div class="form-group">
+      <label for="tasting__taste">Taste</label>
+      <input class="form-control" id="tasting__taste" ng-model="vm.taste" type="text" slider options="{from:0, to:5, step:0.25}" />
+    </div>
+    <div class="form-group">
+      <label for="tasting__mouthfeel">Mouthfeel</label>
+      <input class="form-control" id="tasting__mouthfeel" ng-model="vm.mouthfeel" type="text" slider options="{from:0, to:5, step:0.25}" />
+    </div>
+    <div class="form-group">
+      <label for="tasting__overall">Overall</label>
+      <input class="form-control" id="tasting__overall" ng-model="vm.overall" type="text" slider options="{from:0, to:5, step:0.25}" />
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,3 +1,50 @@
+/** General **/
+[ng:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+img.absolute-centered {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
+  height: auto;
+  width: auto;
+  max-width:100%;
+  max-height:100%;
+}
+
+.blur {
+  -webkit-filter: blur(10px); /* Chrome, Opera, etc. */
+  filter: url('blur.svg#blur'); /* Older FF and others - http://jordanhollinger.com/media/blur.svg */
+  filter: blur(10px); /* Firefox 35+, eventually all */
+}
+
+.radial-grad {
+  background: -webkit-radial-gradient(white 50%, rgba(255,255,255,0) 100%); /* Safari 5.1-6.0 */
+  background: -o-radial-gradient(white 50%, rgba(255,255,255,0) 100%); /* For Opera 11.6-12.0 */
+  background: -moz-radial-gradient(white 50%, rgba(255,255,255,0) 100%); /* For Firefox 3.6-15 */
+  background: radial-gradient(white 50%, rgba(255,255,255,0) 100%); /* Standard syntax */
+}
+
+/** Splash Screen **/
+[ng-cloak].splash {
+  display: block !important;
+}
+[ng-cloak] {display: none;}
+/* some naive styles for a splash page */
+.splash {
+  background: blue;
+  color: white;
+}
+.splash h2 {
+  font-size: 2.1em;
+  font-weight: 500;
+}
+
+/** Brew List **/
 .no-brews-here {
   text-align: center;
 }
@@ -20,21 +67,129 @@
   width:150px;
 }
 
-img.absolute-centered {
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  margin: auto;
-  height: auto;
-  width: auto;
-  max-width:100%;
-  max-height:100%;
-}
-
-.btn-add-new-brew {
+.btn-add-new {
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.index-action {
+  position: fixed;
+  right: 5px;
+  color: #4285f4;
+  font-weight: bold;
+  line-height: 1;
+  font-size: x-large;
+  padding: 0px 15px;
+  background: -webkit-radial-gradient(rgba(255,255,255,0.7) 60%, rgba(255,255,255,0) 100%); /* Safari 5.1-6.0 */
+  background: -o-radial-gradient(rgba(255,255,255,0.7) 60%, rgba(255,255,255,0) 100%); /* For Opera 11.6-12.0 */
+  background: -moz-radial-gradient(rgba(255,255,255,0.7) 60%, rgba(255,255,255,0) 100%); /* For Firefox 3.6-15 */
+  background: radial-gradient(rgba(255,255,255,0.7) 60%, rgba(255,255,255,0) 100%); /* Standard syntax */
+}
+
+.add-new-tasting {
+  bottom: 20px;
+}
+
+.add-new-brew {
+  bottom: 90px;
+}
+
+.brew-images {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+
+.brews {
+  list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.brews li {
+  clear: both;
+  height: 115px;
+  padding-top: 15px;
+}
+
+/** Detail View **/
+.brew-detail .brew__image {
+  position:relative;
+  height:400px;
+  width:400px;
+}
+
+img.brew {
+  float: left;
+  margin-right: 3em;
+  margin-bottom: 2em;
+  background-color: white;
+  padding: 2em;
+  max-height: 400px;
+  max-width: 400px;
+  display: none;
+}
+
+img.brew:first-child {
+  display: block;
+}
+
+
+ul.brew-thumbs {
+  margin: 0;
+  list-style: none;
+}
+
+ul.brew-thumbs li {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 1em;
+  background-color: white;
+}
+
+ul.brew-thumbs img {
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+}
+
+ul.brew-thumbs img:hover {
+  cursor: pointer;
+}
+
+
+ul.specs {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.specs > li{
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+ul.specs > li > span{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+ul.specs dt {
+  font-weight: bold;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
 }

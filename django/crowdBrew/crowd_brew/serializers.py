@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+import pdb
+
 from .models import *
 from authentication.serializers import AccountSerializer
 
@@ -74,6 +76,47 @@ class BrewSerializer(serializers.ModelSerializer):
         def update(self, instance, validated_data):
             instance.name = validated_data.get('name', instance.name)
             instance.description = validated_data.get('description', instance.description)
+
+            instance.save()
+            return instance
+        def get_validation_exclusions(self, *args, **kwargs):
+            exclusions = super(BrewSerializer, self).get_validation_exclusions()
+            return exclusions + ['brewer']
+
+class KeywordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Keyword
+        fields = ('id', 'tasting', 'category', 'key')
+        read_only_fields = ('id')
+
+        def create(self, validated_data):
+            return Keyword.objects.create(**validated_data)
+
+class TastingSerializer(serializers.ModelSerializer):
+    brew = BrewSerializer(required=False, read_only=True)
+    #brewId = serializers.
+    user = AccountSerializer(required=False, read_only=True)
+    keywords = KeywordSerializer(many=True, required=False, read_only=True)
+
+    class Meta:
+        model = Tasting
+        fields = ('id', 'brew', 'user', 'appearance', 'smell', 'taste', 'mouthfeel', 'overall', 'keywords')
+        read_only_fields = ('id')
+        extra_kwargs = {'brew_id': {'write_only': True}}
+
+        def create(self, validated_data):
+            pdb.set_trace()
+            brew_id = validated_data.pop('brew_id')
+            brew = Brew.objects.get(id=brew_id)
+            return Tasting.objects.create(brew=brew, **validated_data)
+
+        def update(self, instance, validated_data):
+            instance.appearance = validated_data.get('appearance', instance.appearance)
+            instance.smell = validated_data.get('smell', instance.smell)
+            instance.taste = validated_data.get('taste', instance.taste)
+            instance.mouthfeel = validated_data.get('mouthfeel', instance.mouthfeel)
+            instance.overall = validated_data.get('overall', instance.overall)
+            instance.keywords = validated_data.get('keywords', instance.keywords)
 
             instance.save()
             return instance

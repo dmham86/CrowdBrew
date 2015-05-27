@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    <div class="well">
+      <div class="brew-detail" ng-show="vm.brew.name" ng-cloak>
+
+        <div class="brew__images">
+          <img ng-src="{{img.image}}"
+               class="brew absolute-centered"
+               ng-repeat="img in vm.brew.images"
+               ng-class="{active: mainImageUrl==img.image}">
+        </div>
+
+        <h1>{{vm.brew.name}}</h1>
+
+        <h3><b>Brewed by:</b> <a href="/user/{{vm.brew.brewer.user.username}}">{{vm.brew.brewer.user.username}}</a></h3>
+        <p>Style: {{vm.brew.style}}</p>
+        <p>Type: {{vm.brew.type}}</p>
+        <p>ABV: {{vm.brew.abv}}%</p>
+        <p>{{vm.brew.description}}</p>
+
+        <ul class="brew-thumbs">
+          <li ng-repeat="img in vm.brew.images">
+            <img ng-src="{{img.image}}" ng-click="setImage(img.image)">
+          </li>
+        </ul>
+        <!--
+        <ul class="specs">
+          <li>
+            <span>Relevant Dates</span>
+            <dl>
+              <dt>Dates</dt>
+              <dd ng-repeat="date in vm.brew.dates">{{date.date}} - {{date.description}}</dd>
+            </dl>
+          </li>
+          <li>
+            <span>Recipe: {{vm.brew.recipe.volume}} batch</span>
+            <dl>
+              <dt>Fermentables</dt>
+              <dd ng-repeat="fermentable in vm.brew.recipe.fermentables">{{fermentable.weight}}{{fermentable.units}} {{fermentable.name}}</dd>
+              <dt>Boil Additions</dt>
+              <dd ng-repeat="addition in vm.brew.recipe.boil">{{addition.weight}}{{addition.units}} {{addition.name}} @ {{addition.time}} min</dd>
+            </dl>
+          </li>
+          <li>
+            <span>Keywords</span>
+            <dl>
+              <dt>Tags</dt>
+              <dd ng-repeat="tag in vm.brew.tags">{{tag.tag}}</dd>
+            </dl>
+          </li>
+        </ul>-->
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary btn-fab btn-raised mdi-content-add btn-add-new-brew"
+  href="javascript:void(0)"
+  ng-show="vm.isAuthenticated"
+  ng-dialog="/static/templates/brews/new-brew.html"
+  ng-dialog-controller="NewBrewController as vm"></a>

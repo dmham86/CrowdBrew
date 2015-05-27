@@ -24,6 +24,10 @@
       controller: 'ProfileSettingsController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/profiles/settings.html'
+    }).when('/brew/:id', {
+      controller: 'BrewDetailController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/brews/brew-detail.html'
     }).otherwise('/');
   }
 })();

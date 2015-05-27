@@ -20,6 +20,8 @@
     vm.isAuthenticated = Authentication.isAuthenticated();
     vm.brews = [];
 
+    vm.selectingAction = false;
+
     activate();
 
     /**
