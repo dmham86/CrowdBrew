@@ -15,12 +15,13 @@
   * @namespace IndexController
   */
   function IndexController($scope, Authentication, Brews, Snackbar) {
-    var vm = this;
+    var vm = this, selectingAction = false, actionTimeout;
 
     vm.isAuthenticated = Authentication.isAuthenticated();
     vm.brews = [];
 
-    vm.selectingAction = false;
+    vm.isSelectingAction = isSelectingAction;
+    vm.setSelectingAction = setSelectingAction;
 
     activate();
 
@@ -59,6 +60,33 @@
       function brewsErrorFn(data, status, headers, config) {
         Snackbar.error(data.error);
       }
+    }
+
+    /**
+     * @name isSelectingAction
+     * @desc Returns true if user is currently selecting an action from the menu
+     * @return User is selecting action
+     * @memberOf crowdBrew.layout.controllers.IndexController
+     */
+    function isSelectingAction() {
+      return selectingAction;
+    }
+
+    /**
+     * @name setSelectingAction
+     * @desc Set user is selecing action. Debounced on false
+     * @memberOf crowdBrew.layout.controllers.IndexController
+     */
+    function setSelectingAction(selecting) {
+      if(selecting!=true) {
+        clearTimeout(actionTimeout);
+        actionTimeout = setTimeout(function() { selectingAction = false; }, 400)
+      }
+      else {
+        clearTimeout(actionTimeout);
+        selectingAction = true;
+      }
+
     }
   }
 })();

@@ -67,6 +67,13 @@ img.absolute-centered {
   width:150px;
 }
 
+#add-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
 .btn-add-new {
   position: fixed;
   bottom: 20px;

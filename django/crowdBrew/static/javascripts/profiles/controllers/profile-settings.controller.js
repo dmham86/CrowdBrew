@@ -40,7 +40,7 @@
         Snackbar.error('You are not authorized to view this page.');
       } else {
         // Redirect if logged in, but not the owner of this profile.
-        if (authenticatedAccount.username !== username) {
+        if (authenticatedAccount.username !== username && !authenticatedAccount.is_admin) {
           $location.url('/');
           Snackbar.error('You are not authorized to view this page.');
         }

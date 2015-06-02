@@ -24,3 +24,50 @@
     </div> <!-- /.collapse.navbar-collapse -->
   </div> <!-- /.container-fluid -->
 </nav>
+
+<div class="dropup" id="add-menu" ng-controller="NavbarController as vm" ng-show="vm.isAuthenticated">
+<a class="btn btn-primary btn-fab btn-raised mdi-content-add btn-add-new dropdown-toggle"
+   id="add-button"
+   href="javascript:void(0)"
+   data-toggle="dropdown"></a>
+<ul class="dropdown-menu">
+  <li><div class="index-action add-new-tasting">New Tasting<a class="btn btn-primary btn-fab btn-raised mdi-content-add"
+         href="javascript:void(0)"
+         ng-show="vm.isAuthenticated"
+         ng-dialog="/static/templates/tastings/new-tasting.html"
+         ng-dialog-controller="NewTastingController as vm"></a></div></li>
+  <li><div class="index-action add-new-brew">New Brew
+    <a class="btn btn-primary btn-fab btn-raised mdi-content-add"
+       href="javascript:void(0)"
+       ng-show="vm.isAuthenticated"
+       ng-dialog="/static/templates/brews/new-brew.html"
+       ng-dialog-controller="NewBrewController as vm"></a>
+  </div></li>
+
+</ul>
+</div>
+
+
+<!--
+<a class="btn btn-primary btn-fab btn-raised mdi-content-add btn-add-new"
+   id="add-button"
+   href="javascript:void(0)"
+   ng-show="vm.isAuthenticated && !vm.isSelectingAction()"
+   ng-click="vm.setSelectingAction(true)"></a>
+<div id="add-menu" ng-show="vm.isSelectingAction()" outside-click="vm.setSelectingAction(false)">
+  <div class="index-action add-new-tasting">New Tasting
+    <a class="btn btn-primary btn-fab btn-raised mdi-content-add"
+       href="javascript:void(0)"
+       ng-show="vm.isAuthenticated"
+       ng-dialog="/static/templates/tastings/new-tasting.html"
+       ng-dialog-controller="NewTastingController as vm"></a>
+  </div>
+  <div class="index-action add-new-brew">New Brew
+    <a class="btn btn-primary btn-fab btn-raised mdi-content-add"
+       href="javascript:void(0)"
+       ng-show="vm.isAuthenticated"
+       ng-dialog="/static/templates/brews/new-brew.html"
+       ng-dialog-controller="NewBrewController as vm"></a>
+  </div>
+</div>
+-->

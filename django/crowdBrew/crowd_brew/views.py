@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from rest_framework import permissions, viewsets, filters
 from rest_framework.response import Response
 

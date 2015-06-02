@@ -9,13 +9,13 @@
     .module('crowdBrew.brews.services')
     .factory('Brews', Brews);
 
-  Brews.$inject = ['$http'];
+  Brews.$inject = ['$http', 'Authentication'];
 
   /**
   * @namespace Brews
   * @returns {Factory}
   */
-  function Brews($http) {
+  function Brews($http, Authentication) {
     var Brews = {
       all: all,
       create: create,

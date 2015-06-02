@@ -1,0 +1,98 @@
+[
+{
+    "fields": {
+        "username": "cbadmin",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "",
+        "created_at": "2015-05-16T12:55:23Z",
+        "updated_at": "2015-06-01T13:38:09Z",
+        "last_login": "2015-06-01T13:43:41Z",
+        "is_admin": true,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbadmin@localhost"
+    },
+    "model": "authentication.account",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "cbuser1",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "The Original Crowd Brewer",
+        "created_at": "2015-05-18T08:08:11Z",
+        "updated_at": "2015-06-01T13:44:51Z",
+        "last_login": "2015-05-29T23:52:20Z",
+        "is_admin": false,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbuser1@localhost"
+    },
+    "model": "authentication.account",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "cbuser2",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "The Second Crowd Brewer",
+        "created_at": "2015-05-18T08:08:11Z",
+        "updated_at": "2015-06-01T13:46:36Z",
+        "last_login": "2015-05-15T23:33:01Z",
+        "is_admin": false,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbuser2@localhost"
+    },
+    "model": "authentication.account",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "cbuser3",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "",
+        "created_at": "2015-05-29T11:05:23Z",
+        "updated_at": "2015-06-01T13:45:41Z",
+        "last_login": "2015-05-29T11:05:24Z",
+        "is_admin": false,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbuser3@localhost"
+    },
+    "model": "authentication.account",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "cbuser4",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "",
+        "created_at": "2015-05-29T23:39:27Z",
+        "updated_at": "2015-06-01T13:46:16Z",
+        "last_login": "2015-05-29T23:46:21Z",
+        "is_admin": false,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbuser4@localhost"
+    },
+    "model": "authentication.account",
+    "pk": 5
+},
+{
+    "fields": {
+        "username": "cbuser5",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "",
+        "created_at": "2015-05-29T23:39:27Z",
+        "updated_at": "2015-06-01T13:46:16Z",
+        "last_login": "2015-05-29T23:46:21Z",
+        "is_admin": false,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbuser5@localhost"
+    },
+    "model": "authentication.account",
+    "pk": 6
+}
+]

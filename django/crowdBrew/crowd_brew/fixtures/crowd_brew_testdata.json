@@ -1,0 +1,327 @@
+[
+{
+    "fields": {
+        "created_at": "2015-05-14T20:20:53Z",
+        "description": "We are number one!",
+        "updated_at": "2015-05-14T20:20:53Z",
+        "name": "Number One Brewing Co."
+    },
+    "model": "crowd_brew.brewery",
+    "pk": 1
+},
+{
+    "fields": {
+        "created_at": "2015-05-15T19:42:03Z",
+        "description": "We make beer, and that's about all there is to it.",
+        "updated_at": "2015-05-15T19:42:03Z",
+        "name": "Just Another Brewing Co."
+    },
+    "model": "crowd_brew.brewery",
+    "pk": 2
+},
+{
+    "fields": {
+        "created_at": "2015-05-29T11:08:57Z",
+        "description": "We only drink water that's been through a brewery first.",
+        "updated_at": "2015-05-29T11:08:57Z",
+        "name": "Grainwater Brewing"
+    },
+    "model": "crowd_brew.brewery",
+    "pk": 3
+},
+{
+    "fields": {
+        "created_at": "2015-05-29T23:41:24Z",
+        "description": "We make terrible lagers. Sorry about that. Our ales are ok though.",
+        "updated_at": "2015-05-29T23:42:57Z",
+        "name": "Bad Lager, LLC"
+    },
+    "model": "crowd_brew.brewery",
+    "pk": 4
+},
+{
+    "fields": {
+        "brewery": 1,
+        "user": 2
+    },
+    "model": "crowd_brew.brewer",
+    "pk": 1
+},
+{
+    "fields": {
+        "brewery": 2,
+        "user": 3
+    },
+    "model": "crowd_brew.brewer",
+    "pk": 2
+},
+{
+    "fields": {
+        "brewery": 3,
+        "user": 4
+    },
+    "model": "crowd_brew.brewer",
+    "pk": 3
+},
+{
+    "fields": {
+        "brewery": 4,
+        "user": 5
+    },
+    "model": "crowd_brew.brewer",
+    "pk": 4
+},
+{
+
+    "fields": {
+        "brewery": 1,
+        "user": 6
+    },
+    "model": "crowd_brew.brewer",
+    "pk": 5
+},
+{
+    "fields": {
+        "style": "Cascadian Dark Ale",
+        "description": "A balanced Cascadian Dark Ale",
+        "brewer": 1,
+        "created_at": "2015-05-14T20:24:44Z",
+        "updated_at": "2015-05-14T20:24:44Z",
+        "abv": 6,
+        "type": "Extract",
+        "name": "Number One Cascadian"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 1
+},
+{
+    "fields": {
+        "style": "American Brown Ale",
+        "description": "A complex, malt-balanced, nut brown ale.",
+        "brewer": 1,
+        "created_at": "2015-05-15T01:40:42Z",
+        "updated_at": "2015-05-15T01:40:42Z",
+        "abv": 5,
+        "type": "Extract",
+        "name": "Number One Nut Brown"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 2
+},
+{
+    "fields": {
+        "style": "Imperial IPA",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis dui sed lobortis vehicula. Ut vitae tincidunt enim. Integer id dignissim tortor. Nulla facilisi. Pellentesque vulputate feugiat tortor, sit amet accumsan purus massa nunc.",
+        "brewer": 1,
+        "created_at": "2015-05-15T01:41:26Z",
+        "updated_at": "2015-05-15T01:41:26Z",
+        "abv": 9,
+        "type": "Extract",
+        "name": "Number One DIPA"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 3
+},
+{
+    "fields": {
+        "style": "Saison",
+        "description": "A classic saison without all the bells and whistles",
+        "brewer": 1,
+        "created_at": "2015-05-15T01:42:39Z",
+        "updated_at": "2015-05-15T01:42:39Z",
+        "abv": 4,
+        "type": "All-Grain",
+        "name": "Number One Saison"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 4
+},
+{
+    "fields": {
+        "style": "Hefeweizen",
+        "description": "Integer vulputate, lectus sit amet mollis mattis, tellus eros luctus enim, et gravida magna sem vel odio. Nullam felis massa, fringilla at porttitor eu, maximus ac nunc. Morbi nec interdum ligula, venenatis dapibus sapien. Pellentesque id sem nullam.",
+        "brewer": 2,
+        "created_at": "2015-05-15T23:44:44Z",
+        "updated_at": "2015-05-15T23:44:44Z",
+        "abv": 5,
+        "type": "All-Grain",
+        "name": "Smellerweis"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 5
+},
+{
+    "fields": {
+        "style": "Belgian Blonde / Fruit Beer",
+        "description": "Our second all-grain batch. A Belgian Blonde with pureed strawberries added during fermentation.",
+        "brewer": 1,
+        "created_at": "2015-05-20T01:26:03Z",
+        "updated_at": "2015-05-20T01:26:03Z",
+        "abv": 6,
+        "type": "All-Grain",
+        "name": "Strawberry Blonde"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 11
+},
+{
+    "fields": {
+        "style": "India Pale Ale",
+        "description": "It's a hop bomb and we have a lot to say about it. In sed lacus ut nunc sagittis placerat vitae sed justo. Vestibulum ut eros eget nibh consequat congue quis in ipsum. Donec id volutpat felis, et pellentesque turpis. Ut pellentesque ultricies nulla ut auctor. Nullam porta nisi vitae tortor aliquam, ac vestibulum elit ullamcorper. In dapibus lacus a ligula facilisis, id vulputate tortor pulvinar. In hac habitasse platea dictumst. Quisque luctus dolor non mauris egestas consequat. Cras pellentesque ornare mi et interdum. In viverra nunc cras amet.",
+        "brewer": 2,
+        "created_at": "2015-05-26T14:23:23Z",
+        "updated_at": "2015-05-26T14:23:23Z",
+        "abv": 0,
+        "type": "All-Grain",
+        "name": "Unoriginal IPA"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 13
+},
+{
+    "fields": {
+        "style": "Hefeweizen",
+        "description": "It's a wheat beer. It tastes good in the summer. We're very good at descriptions.",
+        "brewer": 4,
+        "created_at": "2015-05-29T23:51:55Z",
+        "updated_at": "2015-05-29T23:51:55Z",
+        "abv": 6,
+        "type": "All-Grain",
+        "name": "The Boss"
+    },
+    "model": "crowd_brew.brew",
+    "pk": 14
+},
+{
+    "fields": {
+        "title": "Black Caps",
+        "created_at": "2015-05-14T20:36:23Z",
+        "updated_at": "2015-05-14T20:36:23Z",
+        "image": "/static/images/2015/05/black-bottle-caps.jpg",
+        "brew": 1,
+        "brewery": null
+    },
+    "model": "crowd_brew.image",
+    "pk": 6
+},
+{
+    "fields": {
+        "title": "Orange Caps",
+        "created_at": "2015-05-14T22:07:49Z",
+        "updated_at": "2015-05-14T22:07:49Z",
+        "image": "/static/images/2015/05/orange-bottle-caps.jpg",
+        "brew": 3,
+        "brewery": null
+    },
+    "model": "crowd_brew.image",
+    "pk": 7
+},
+{
+    "fields": {
+        "title": "Nut Brown",
+        "created_at": "2015-05-14T22:08:39Z",
+        "updated_at": "2015-05-14T22:08:39Z",
+        "image": "/static/images/2015/05/brown-beer.jpg",
+        "brew": 2,
+        "brewery": null
+    },
+    "model": "crowd_brew.image",
+    "pk": 8
+},
+{
+    "fields": {
+        "title": "Saison",
+        "created_at": "2015-05-14T22:09:33Z",
+        "updated_at": "2015-05-14T22:09:33Z",
+        "image": "/static/images/2015/05/amber-beer.jpg",
+        "brew": 4,
+        "brewery": null
+    },
+    "model": "crowd_brew.image",
+    "pk": 9
+},
+{
+    "fields": {
+        "title": "Strawberries",
+        "created_at": "2015-05-14T22:10:33Z",
+        "updated_at": "2015-05-14T22:10:33Z",
+        "image": "/static/images/2015/05/Strawberry.jpg",
+        "brew": 11,
+        "brewery": null
+    },
+    "model": "crowd_brew.image",
+    "pk": 11
+},
+{
+    "fields": {
+        "title": "Smellerweis",
+        "created_at": "2015-05-15T19:46:37Z",
+        "updated_at": "2015-05-15T19:46:37Z",
+        "image": "/static/images/2015/05/wheat-beer.jpg",
+        "brew": 5,
+        "brewery": null
+    },
+    "model": "crowd_brew.image",
+    "pk": 10
+},
+{
+    "fields": {
+        "mouthfeel": 2.5,
+        "taste": 2.5,
+        "overall": 2.5,
+        "created_at": "2015-05-27T13:44:38Z",
+        "appearance": 2.5,
+        "updated_at": "2015-05-27T13:44:38Z",
+        "user": 2,
+        "brew": 5,
+        "smell": 2.5
+    },
+    "model": "crowd_brew.tasting",
+    "pk": 1
+},
+{
+    "fields": {
+        "mouthfeel": 2.5,
+        "taste": 2.5,
+        "overall": 2.5,
+        "created_at": "2015-05-27T13:46:11Z",
+        "appearance": 2.5,
+        "updated_at": "2015-05-27T13:46:11Z",
+        "user": 2,
+        "brew": 5,
+        "smell": 2.5
+    },
+    "model": "crowd_brew.tasting",
+    "pk": 2
+},
+{
+    "fields": {
+        "mouthfeel": 2.5,
+        "taste": 2.5,
+        "overall": 2.5,
+        "created_at": "2015-05-27T13:48:21Z",
+        "appearance": 2.5,
+        "updated_at": "2015-05-27T13:48:21Z",
+        "user": 2,
+        "brew": 5,
+        "smell": 2.5
+    },
+    "model": "crowd_brew.tasting",
+    "pk": 3
+},
+{
+    "fields": {
+        "mouthfeel": 3.0,
+        "taste": 4.0,
+        "overall": 4.0,
+        "created_at": "2015-05-29T23:58:17Z",
+        "appearance": 5.0,
+        "updated_at": "2015-05-29T23:58:17Z",
+        "user": 2,
+        "brew": 14,
+        "smell": 3.0
+    },
+    "model": "crowd_brew.tasting",
+    "pk": 4
+}
+]
