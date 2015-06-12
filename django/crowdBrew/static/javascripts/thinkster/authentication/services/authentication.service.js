@@ -27,7 +27,8 @@
       logout: logout,
       register: register,
       setAuthenticatedAccount: setAuthenticatedAccount,
-      unauthenticate: unauthenticate
+      unauthenticate: unauthenticate,
+      error: null
     };
 
     return Authentication;
@@ -75,10 +76,10 @@
      * @returns {Promise}
      * @memberOf thinkster.authentication.services.Authentication
      */
-    function login(email, password) {
+    function login(email, password, errorFn) {
       return $http.post('app/api/v1/auth/login/', {
         email: email, password: password
-      }).then(loginSuccessFn, loginErrorFn);
+      }).then(loginSuccessFn, errorFn != null ? errorFn : loginErrorFn);
 
       /**
        * @name loginSuccessFn
@@ -95,7 +96,7 @@
        * @desc Log "Epic failure!" to the console
        */
       function loginErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        Authentication.error = data.data.message;
       }
     }
 
@@ -124,7 +125,7 @@
        * @desc Log "Epic failure!" to the console
        */
       function logoutErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        console.error('Error Logging Out.');
       }
     }
 

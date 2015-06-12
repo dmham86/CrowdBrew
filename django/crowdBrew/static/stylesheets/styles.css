@@ -29,6 +29,11 @@ img.absolute-centered {
   background: radial-gradient(white 50%, rgba(255,255,255,0) 100%); /* Standard syntax */
 }
 
+/** Nav Bar **/
+.navbar img.gravatar {
+  margin: -5px 0 -5px 0 !important;
+}
+
 /** Splash Screen **/
 [ng-cloak].splash {
   display: block !important;

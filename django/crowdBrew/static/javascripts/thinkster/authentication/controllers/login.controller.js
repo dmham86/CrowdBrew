@@ -18,6 +18,7 @@
     var vm = this;
 
     vm.login = login;
+    vm.error = null;
 
     activate();
 
@@ -39,7 +40,9 @@
     * @memberOf thinkster.authentication.controllers.LoginController
     */
     function login() {
-      Authentication.login(vm.email, vm.password);
+      Authentication.login(vm.email, vm.password, function(data, status, headers, config) {
+        vm.error = data.data.message;
+      });
     }
   }
 })();

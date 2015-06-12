@@ -59,6 +59,13 @@ class LoginView(views.APIView):
 
         account = authenticate(email=email, password=password)
 
+        if account is None:
+            try:
+                user = Account.objects.get(username=email)
+                account = authenticate(email=user.email, password=password)
+            except Account.DoesNotExist:
+                account = None;
+
         if account is not None:
             if account.is_active:
                 login(request, account)
@@ -71,11 +78,11 @@ class LoginView(views.APIView):
                     'status': 'Unauthorized',
                     'message': 'This account has been disabled.'
                 }, status=status.HTTP_401_UNAUTHORIZED)
-        else:
-            return Response({
-                'status': 'Unauthorized',
-                'message': 'Username/password combination invalid.'
-            }, status=status.HTTP_401_UNAUTHORIZED)
+
+        return Response({
+            'status': 'Unauthorized',
+            'message': 'Username/password combination invalid.'
+        }, status=status.HTTP_401_UNAUTHORIZED)
 
 class LogoutView(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)

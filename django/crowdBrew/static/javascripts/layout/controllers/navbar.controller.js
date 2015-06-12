@@ -20,6 +20,8 @@
     vm.isAuthenticated = Authentication.isAuthenticated();
 
     vm.logout = logout;
+    vm.syncAuth = syncAuth;
+
 
     /**
     * @name logout
@@ -28,6 +30,15 @@
     */
     function logout() {
       Authentication.logout();
+    }
+
+    function syncAuth(account) {
+      if (!!account) {
+        Authentication.setAuthenticatedAccount(account);
+      }
+      else {
+        Authentication.unauthenticate();
+      }
     }
   }
 })();
