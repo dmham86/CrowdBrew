@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="crowdBrew">
+<head>
+  <title>Crowd Brew</title>
+
+  {% include 'stylesheets.html' %}
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 ng-view">{% block content %}{% endblock %}</div>
+    </div>
+  </div>
+
+  {% include 'javascripts.html' %}
+</body>
+</html>

@@ -22,6 +22,6 @@ urlpatterns = patterns(
     '',
     url(r'^app/', include('crowd_brew.urls')),
     url(r'^admin/', include(admin.site.urls)),
-
-    url('^.*$', IndexView.as_view(), name='index'),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^.*$', IndexView.as_view(), name='index'),
 )

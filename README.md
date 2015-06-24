@@ -4,7 +4,9 @@ A website for rating and sharing homebrews. All homebrewers that have ever share
 
 required
 pip
+- django-rest-framework
 - django-gravatar2
+- django-registration-redux
 
 bower_components
 - angular

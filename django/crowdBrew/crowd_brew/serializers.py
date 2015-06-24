@@ -94,7 +94,6 @@ class KeywordSerializer(serializers.ModelSerializer):
 
 class TastingSerializer(serializers.ModelSerializer):
     brew = BrewSerializer(required=False, read_only=True)
-    #brewId = serializers.
     user = AccountSerializer(required=False, read_only=True)
     keywords = KeywordSerializer(many=True, required=False, read_only=True)
 

@@ -14,15 +14,6 @@ class BrewTestCase(TestCase):
         brewery = Brewery.objects.get(name="Brewery 1")
         self.assertEqual(brewery.description, "Some information about Brewery 1")
 
-    def test_account_persist(self):
-        """Tests persist of valid account"""
-        account = Account.objects.get(username="username1")
-        self.assertEqual(account.email, "user1@test.com")
-        self.assertEqual(account.first_name, "First")
-        self.assertEqual(account.last_name, "Last")
-        self.assertEqual(account.get_full_name(), "First Last")
-        self.assertEqual(account.tagline, "The First User")
-
     def test_brewer_belongs_to_brewery(self):
         """Tests that the account, brewery, and brewer were created correctly linked"""
         account = Account.objects.get(username="username1")

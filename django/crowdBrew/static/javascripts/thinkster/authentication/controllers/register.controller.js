@@ -25,7 +25,10 @@
     * @memberOf thinkster.authentication.controllers.RegisterController
     */
     function register() {
-      Authentication.register(vm.email, vm.password, vm.username);
+      Authentication.register(vm.email, vm.password, vm.username).then(
+          function(data){vm.success = true;},
+          function(data){vm.error = data;}
+      );
     }
 
     activate();

@@ -1,6 +1,14 @@
 [
 {
     "fields": {
+        "domain": "crowdbrew.local",
+        "name": "CrowdBrew"
+    },
+    "model": "sites.site",
+    "pk": 1
+},
+{
+    "fields": {
         "username": "cbadmin",
         "first_name": "",
         "last_name": "",
@@ -10,7 +18,8 @@
         "last_login": "2015-06-01T13:43:41Z",
         "is_admin": true,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbadmin@localhost"
+        "email": "cbadmin@localhost",
+        "account_status": "active"
     },
     "model": "authentication.account",
     "pk": 1
@@ -26,7 +35,8 @@
         "last_login": "2015-05-29T23:52:20Z",
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbuser1@localhost"
+        "email": "cbuser1@localhost",
+        "account_status": "Active"
     },
     "model": "authentication.account",
     "pk": 2
@@ -42,7 +52,8 @@
         "last_login": "2015-05-15T23:33:01Z",
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbuser2@localhost"
+        "email": "cbuser2@localhost",
+        "account_status": "Active"
     },
     "model": "authentication.account",
     "pk": 3
@@ -58,7 +69,8 @@
         "last_login": "2015-05-29T11:05:24Z",
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbuser3@localhost"
+        "email": "cbuser3@localhost",
+        "account_status": "Active"
     },
     "model": "authentication.account",
     "pk": 4
@@ -74,7 +86,8 @@
         "last_login": "2015-05-29T23:46:21Z",
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbuser4@localhost"
+        "email": "cbuser4@localhost",
+        "account_status": "Active"
     },
     "model": "authentication.account",
     "pk": 5
@@ -90,7 +103,8 @@
         "last_login": "2015-05-29T23:46:21Z",
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbuser5@localhost"
+        "email": "cbuser5@localhost",
+        "account_status": "Active"
     },
     "model": "authentication.account",
     "pk": 6

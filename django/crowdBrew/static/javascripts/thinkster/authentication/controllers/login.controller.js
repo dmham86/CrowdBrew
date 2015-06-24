@@ -40,9 +40,10 @@
     * @memberOf thinkster.authentication.controllers.LoginController
     */
     function login() {
-      Authentication.login(vm.email, vm.password, function(data, status, headers, config) {
-        vm.error = data.data.message;
-      });
+      Authentication.login(vm.email, vm.password).then(
+          function(data){window.location = '/';},
+          function(data){vm.error = data;}
+      );
     }
   }
 })();

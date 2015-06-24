@@ -28,7 +28,8 @@
       register: register,
       setAuthenticatedAccount: setAuthenticatedAccount,
       unauthenticate: unauthenticate,
-      error: null
+      error: null,
+      complete: false
     };
 
     return Authentication;
@@ -45,26 +46,28 @@
     * @memberOf thinkster.authentication.services.Authentication
     */
     function register(email, password, username) {
-      return $http.post('app/api/v1/accounts/', {
+      var regPromise = jQuery.Deferred();
+      $http.post('app/api/v1/accounts/', {
         username: username,
         password: password,
         email: email
       }).then(registerSuccessFn, registerErrorFn);
+      return regPromise.promise();
 
       /**
       * @name registerSuccessFn
-      * @desc Log the new user in
+      * @desc Return the user object
       */
       function registerSuccessFn(data, status, headers, config) {
-        Authentication.login(email, password);
+        regPromise.resolve(data.data);
       }
 
       /**
       * @name registerErrorFn
-      * @desc Log "Epic failure!" to the console
+      * @desc Return the failure message
       */
       function registerErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        return regPromise.reject(data.data.message);
       }
     }
 
@@ -76,27 +79,30 @@
      * @returns {Promise}
      * @memberOf thinkster.authentication.services.Authentication
      */
-    function login(email, password, errorFn) {
-      return $http.post('app/api/v1/auth/login/', {
+    function login(email, password) {
+      var loginPromise = jQuery.Deferred();
+      $http.post('app/api/v1/auth/login/', {
         email: email, password: password
-      }).then(loginSuccessFn, errorFn != null ? errorFn : loginErrorFn);
+      }).then(loginSuccessFn, loginErrorFn);
+
+      return loginPromise.promise();
 
       /**
        * @name loginSuccessFn
-       * @desc Set the authenticated account and redirect to index
+       * @desc Set the authenticated account
        */
       function loginSuccessFn(data, status, headers, config) {
         Authentication.setAuthenticatedAccount(data.data);
 
-        window.location = '/';
+        return loginPromise.resolve(data.data);
       }
 
       /**
        * @name loginErrorFn
-       * @desc Log "Epic failure!" to the console
+       * @desc Send a reject to the promise with the error message
        */
       function loginErrorFn(data, status, headers, config) {
-        Authentication.error = data.data.message;
+        return loginPromise.reject(data.data.message);
       }
     }
 
@@ -122,7 +128,7 @@
 
       /**
        * @name logoutErrorFn
-       * @desc Log "Epic failure!" to the console
+       * @desc Log error to the console
        */
       function logoutErrorFn(data, status, headers, config) {
         console.error('Error Logging Out.');
