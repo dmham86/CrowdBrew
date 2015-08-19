@@ -4,19 +4,29 @@ A website for rating and sharing homebrews. All homebrewers that have ever share
 
 required
 pip
-- django-rest-framework
+- Pillow
+- djangorestframework
+- drf-nested-routers
+- django_compressor
 - django-gravatar2
 - django-registration-redux
 
-bower_components
+bower
 - angular
 - angular-cookies
 - angular-route
 - bootstrap
 - bootstrap-material-design
 - jquery
+- snackbarjs
 - ngDialog
 - underscore
-- ngSlider
+- ng-slider
 - allmighty-autocomplete
 - ngAutocomplete
+
+
+Setup
+- Copy django/crowdBrew/crowdBrew/settings.py.template to settings.py in the same folder.
+- Configure settings for your database and any other settings necessary
+- cd to django/crowdBrew/static and run "bower install ../bower.json"

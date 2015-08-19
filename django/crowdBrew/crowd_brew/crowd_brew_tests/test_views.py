@@ -27,3 +27,14 @@ class ViewTestCase(APITestCase):
 
         # Check that the brewer has 5 brews.
         self.assertEqual(len(response.data), 5)
+
+    def test_brew_view(self):
+        brew_id = str(1)
+        # Issue a GET request.
+        response = self.client.get('/app/api/v1/brews/' + brew_id + '/', format='json')
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Confirm the correct brew was returned
+        self.assertEqual(response.data["name"],'Number One Cascadian')

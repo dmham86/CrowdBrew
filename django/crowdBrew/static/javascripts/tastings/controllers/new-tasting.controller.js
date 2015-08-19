@@ -23,11 +23,9 @@
     vm.overall = "2.5";
 
     $scope.updateBrews = function(typed) {
-      //alert(typed);
       vm.newBrews = Tastings.brewSearch(typed);
       vm.newBrews.then(function(data){
         var newBrews = angular.fromJson(data).data;
-        //console.log(newBrews);
         $scope.brews = newBrews;//[];
         //for(var i = 0; i < newBrews.length; i++){
           //$scope.brews.push(newBrews[i].name+'<br/><span class-"small">'+newBrews[i].description+'</span>');

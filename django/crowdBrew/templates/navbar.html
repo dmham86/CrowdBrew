@@ -1,5 +1,5 @@
 {% load gravatar %}
-<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm" ng-init="vm.syncAuth( user )">
+<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm" ng-init="vm.syncAuth( '{{ user.username }}' )">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#crowd-brew-nav">

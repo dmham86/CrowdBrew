@@ -31,12 +31,10 @@
     * @memberOf crowdBrew.layout.controllers.IndexController
     */
     function activate() {
-      console.log('activated');
       Brews.all().then(brewsSuccessFn, brewsErrorFn);
 
       $scope.$on('brew.created', function (event, brew) {
         vm.brews.unshift(brew);
-        console.log(vm.brews);
       });
 
       $scope.$on('brew.created.error', function () {

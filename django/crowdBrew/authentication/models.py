@@ -1,4 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser
+from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import BaseUserManager
 
@@ -10,6 +12,9 @@ class AccountManager(BaseUserManager):
 
         if not kwargs.get('username'):
             raise ValueError('Users must have a valid username.')
+
+        if not kwargs.get('password'):
+            raise ValueError('Users must have a password of length')
 
         account = self.model(
             email=self.normalize_email(email), username=kwargs.get('username')
@@ -30,7 +35,13 @@ class AccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser):
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=40, unique=True)
+    username = models.CharField(max_length=20, unique=True, blank=False, validators=[
+        RegexValidator(
+            regex='^[a-zA-Z0-9\_]{4,20}$',
+            message='Username cannot contain spaces or special characters except _',
+            code='invalid_username'
+        ),
+    ])
 
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
@@ -58,6 +69,10 @@ class Account(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+    def clean(self):
+        if self.password is None or len(self.password) < 4 or len(self.password) > 40:
+            raise ValidationError("Password must be between 4 and 40 characters")
 
     def __unicode__(self):
         return self.email
