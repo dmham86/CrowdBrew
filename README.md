@@ -30,16 +30,17 @@ Crowd Brew has a node.js frontend and django rest framework backend
 
 ## Setup
 ```sh
-cd django/crowdBrew
+## cd to crowdbrew root directory
 cp crowdBrew/settings.py.template crowdbrew/settings.py
 vi crowdBrew/settings.py
 ## Configure your settings as necessary ##
-bower install ../bower.json"
+cd static
+bower install ../bower.json
 ```
 
 ## Running Servers and Tests
 ```sh
-cd django/crowdBrew
+## cd to crowdbrew root directory
 ### Development Server
 python manage.py runserver
 ### Test Server with prepopulated data

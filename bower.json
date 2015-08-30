@@ -11,7 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.1",
+    "angular": "~1.4.5",
     "angular-route": "~1.4.1",
     "angular-cookies": "~1.4.1",
     "bootstrap": "~3.3.5",
@@ -23,5 +23,8 @@
     "ngAutocomplete": "~1.0.0",
     "allmighty-autocomplete": "e72c900d0f",
     "snackbarjs": "~1.0.0"
+  },
+  "resolutions": {
+    "angular": "1.4.5"
   }
 }
