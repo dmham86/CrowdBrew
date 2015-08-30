@@ -13,8 +13,8 @@ class AccountManager(BaseUserManager):
         if not kwargs.get('username'):
             raise ValueError('Users must have a valid username.')
 
-        if not kwargs.get('password'):
-            raise ValueError('Users must have a password of length')
+        if not password:
+            raise ValueError('Users must have a password')
 
         account = self.model(
             email=self.normalize_email(email), username=kwargs.get('username')

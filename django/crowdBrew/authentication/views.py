@@ -40,8 +40,6 @@ class AccountViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            #Account.objects.create_user(**serializer.validated_data)
-
             if Site._meta.installed:
                 site = Site.objects.get_current()
             else:
