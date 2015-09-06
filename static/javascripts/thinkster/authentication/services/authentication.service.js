@@ -32,6 +32,8 @@
       complete: false
     };
 
+    var AUTH_ACCOUNT = "authenticatedAccount";
+
     return Authentication;
 
     ////////////////////
@@ -142,11 +144,11 @@
      * @memberOf thinkster.authentication.services.Authentication
      */
     function getAuthenticatedAccount() {
-      if (!$cookies.authenticatedAccount) {
+      if (!$cookies.getObject(AUTH_ACCOUNT)) {
         return;
       }
 
-      return JSON.parse($cookies.authenticatedAccount);
+      return $cookies.getObject(AUTH_ACCOUNT);
     }
 
     /**
@@ -156,7 +158,7 @@
      * @memberOf thinkster.authentication.services.Authentication
      */
     function isAuthenticated() {
-      return !!$cookies.authenticatedAccount;
+      return !!$cookies.get(AUTH_ACCOUNT);
     }
 
     /**
@@ -167,7 +169,7 @@
      * @memberOf thinkster.authentication.services.Authentication
      */
     function setAuthenticatedAccount(account) {
-      $cookies.authenticatedAccount = JSON.stringify(account);
+      $cookies.putObject(AUTH_ACCOUNT, account);
     }
 
     /**
@@ -177,7 +179,7 @@
      * @memberOf thinkster.authentication.services.Authentication
      */
     function unauthenticate() {
-      delete $cookies.authenticatedAccount;
+      delete $cookies.remove(AUTH_ACCOUNT);
     }
   }
 })();

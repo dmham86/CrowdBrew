@@ -39,8 +39,8 @@
         $location.url('/');
         Snackbar.error('You are not authorized to view this page.');
       } else {
-        // Redirect if logged in, but not the owner of this profile.
-        if (authenticatedAccount.username !== username && !authenticatedAccount.is_admin) {
+        // Redirect if logged in, but not the owner of this profile or an admin.
+        if (!authenticatedAccount.is_admin && authenticatedAccount.username !== username) {
           $location.url('/');
           Snackbar.error('You are not authorized to view this page.');
         }
@@ -110,6 +110,7 @@
       * @desc Show success snackbar
       */
       function profileSuccessFn(data, status, headers, config) {
+        Authentication.setAuthenticatedAccount(data.data);
         Snackbar.show('Your profile has been updated.');
       }
 

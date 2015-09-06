@@ -32,9 +32,12 @@
       Authentication.logout();
     }
 
-    function syncAuth(account) {
-      if (!!account) {
-        Authentication.setAuthenticatedAccount(account);
+    function syncAuth(username) {
+      if (!!username && Authentication.isAuthenticated()) {
+        var account = Authentication.getAuthenticatedAccount();
+        if(account.username != username) {
+          Authentication.unauthenticate();
+        }
       }
       else {
         Authentication.unauthenticate();
