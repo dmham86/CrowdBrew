@@ -6,7 +6,7 @@
       'crowdBrew.tastings.controllers',
       'crowdBrew.tastings.directives',
       'crowdBrew.tastings.services',
-      'autocomplete'
+      'ui.bootstrap'
     ]);
 
   angular

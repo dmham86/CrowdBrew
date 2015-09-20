@@ -16,12 +16,13 @@
     "angular-cookies": "~1.4.1",
     "bootstrap": "~3.3.5",
     "bootstrap-material-design": "~0.3.0",
+    "angular-animate": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
     "jquery": "~2.1.4",
     "ngDialog": "~0.4.0",
     "underscore": "~1.8.3",
     "ng-slider": "~2.3.7",
     "ngAutocomplete": "~1.0.0",
-    "allmighty-autocomplete": "e72c900d0f",
     "snackbarjs": "~1.0.0"
   },
   "resolutions": {

@@ -1,8 +1,31 @@
+<script type="text/ng-template" id="customTemplate.html">
+  <a class="typeahead-suggestion">
+      <span class="header" ng-bind-html="match.label | typeaheadHighlight:query"></span>
+      <br/>
+      <span class="brewed-by" ng-bind-html="match.model.brewer.user.username | typeaheadHighlight:query"></span>
+      <span ng-show="match.model.brewer.brewery">
+        @ <span class="brewed-by" ng-bind-html="match.model.brewer.brewery.name | typeaheadHighlight:query"></span>
+      </span>
+      <span class="details" ng-bind-html="match.model.description | typeaheadHighlight:query"></span>
+      </span>
+  </a>
+</script>
+<script type="text/ng-template" id="customPopupTemplate.html">
+  <ul class="dropdown-menu typeahead-suggestion" ng-show="isOpen() && !moveInProgress" ng-style="{top: position().top+'px', left: position().left+'px'}" style="display: block;" role="listbox" aria-hidden="{{!isOpen()}}">
+      <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }" ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+          <div typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+      </li>
+  </ul>
+</script>
 <form role="form" ng-submit="vm.submit()">
   <div ng-show="!vm.brewSelected">
     <div class="form-group">
       <label for="tasting__brew">Find a Brew</label>
-      <autocomplete id="tasting__brew" ng-model="vm.brew" attr-placeholder="type to search brews..." data="brews" on-type="updateBrews" on-select="setBrew"></autocomplete>
+      <input type="text" ng-model="vm.brew" placeholder="type to search brews..."
+      typeahead="brew as brew.name for brew in updateBrews($viewValue)"
+      typeahead-loading="loadingLocations" typeahead-no-results="noResults"
+      typeahead-template-url="customTemplate.html" typeahead-on-select="setBrew($item, $model, $label)"
+      class="form-control">
     </div>
   </div>
   <div ng-show="vm.brewSelected">

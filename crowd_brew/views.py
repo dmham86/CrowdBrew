@@ -30,7 +30,7 @@ class BrewViewSet(viewsets.ModelViewSet):
     serializer_class = BrewSerializer
     queryset = Brew.objects.order_by('-id')
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('name', 'description')
+    search_fields = ['name', 'description', 'brewer__user__username', 'brewer__brewery__name']
 
     #def get_queryset(self):
         #queryset = Brew.objects.order_by('-id')

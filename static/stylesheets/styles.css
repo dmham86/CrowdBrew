@@ -205,3 +205,23 @@ ul.specs dt {
 h1 {
   border-bottom: 1px solid gray;
 }
+
+ul[typeahead-popup] {
+  width:90%;
+}
+
+ul[typeahead-popup] a.typeahead-suggestion {
+  white-space: normal;
+}
+
+.typeahead-suggestion .header {
+  font-size: 100%;
+}
+
+.typeahead-suggestion .details {
+  font-size: 80%;
+  display: inline-block;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
