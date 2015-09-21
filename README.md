@@ -17,15 +17,15 @@ Crowd Brew has a node.js frontend and django rest framework backend
 - angular
 - angular-cookies
 - angular-route
+- angular-animate
 - bootstrap
 - bootstrap-material-design
+- angular-bootstrap
 - jquery
 - snackbarjs
 - ngDialog
 - underscore
 - ng-slider
-- allmighty-autocomplete
-- ngAutocomplete
 
 
 ## Setup
