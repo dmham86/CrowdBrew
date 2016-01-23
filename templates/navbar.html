@@ -34,13 +34,11 @@
 <ul class="dropdown-menu">
   <li><div class="index-action add-new-tasting">New Tasting<a class="btn btn-primary btn-fab btn-raised mdi-content-add"
          href="javascript:void(0)"
-         ng-show="vm.isAuthenticated"
          ng-dialog="/static/templates/tastings/new-tasting.html"
          ng-dialog-controller="NewTastingController as vm"></a></div></li>
-  <li><div class="index-action add-new-brew">New Brew
+  <li ng-if="vm.isBrewer()"><div class="index-action add-new-brew">New Brew
     <a class="btn btn-primary btn-fab btn-raised mdi-content-add"
        href="javascript:void(0)"
-       ng-show="vm.isAuthenticated"
        ng-dialog="/static/templates/brews/new-brew.html"
        ng-dialog-controller="NewBrewController as vm"></a>
   </div></li>

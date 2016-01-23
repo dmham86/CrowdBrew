@@ -15,7 +15,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ('id', 'email', 'username',
+        fields = ('id', 'email', 'username', 'account_type',
                   'first_name', 'last_name', 'tagline', 'password',
                   'confirm_password', 'is_admin', 'gravatar_url')
         read_only_fields = ('is_admin', 'gravatar_url')

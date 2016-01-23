@@ -47,12 +47,13 @@
     * @returns {Promise}
     * @memberOf thinkster.authentication.services.Authentication
     */
-    function register(email, password, username) {
+    function register(email, password, username, accountType) {
       var regPromise = jQuery.Deferred();
       $http.post('app/api/v1/accounts/', {
         username: username,
         password: password,
-        email: email
+        email: email,
+        accountType: accountType
       }).then(registerSuccessFn, registerErrorFn);
       return regPromise.promise();
 
@@ -158,7 +159,7 @@
      * @memberOf thinkster.authentication.services.Authentication
      */
     function isAuthenticated() {
-      return !!$cookies.get(AUTH_ACCOUNT);
+      return !!$cookies.getObject(AUTH_ACCOUNT);
     }
 
     /**

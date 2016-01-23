@@ -19,7 +19,8 @@
         "is_admin": true,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
         "email": "cbadmin@localhost",
-        "account_status": "active"
+        "account_status": "active",
+        "account_type": "Brewer"
     },
     "model": "authentication.account",
     "pk": 1
@@ -35,8 +36,9 @@
         "last_login": "2015-05-29T23:52:20Z",
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
-        "email": "cbuser1@localhost",
-        "account_status": "Active"
+        "email": "dmham1586@gmail.com",
+        "account_status": "Active",
+        "account_type": "Brewer"
     },
     "model": "authentication.account",
     "pk": 2
@@ -53,7 +55,8 @@
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
         "email": "cbuser2@localhost",
-        "account_status": "Active"
+        "account_status": "Active",
+        "account_type": "Brewer"
     },
     "model": "authentication.account",
     "pk": 3
@@ -70,7 +73,8 @@
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
         "email": "cbuser3@localhost",
-        "account_status": "Active"
+        "account_status": "Active",
+        "account_type": "Brewer"
     },
     "model": "authentication.account",
     "pk": 4
@@ -87,7 +91,8 @@
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
         "email": "cbuser4@localhost",
-        "account_status": "Active"
+        "account_status": "Active",
+        "account_type": "Brewer"
     },
     "model": "authentication.account",
     "pk": 5
@@ -104,9 +109,28 @@
         "is_admin": false,
         "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
         "email": "cbuser5@localhost",
-        "account_status": "Active"
+        "account_status": "Active",
+        "account_type": "Brewer"
     },
     "model": "authentication.account",
     "pk": 6
+},
+{
+    "fields": {
+        "username": "cbtaster1",
+        "first_name": "",
+        "last_name": "",
+        "tagline": "",
+        "created_at": "2015-05-29T23:39:27Z",
+        "updated_at": "2015-06-01T13:46:16Z",
+        "last_login": "2015-05-29T23:46:21Z",
+        "is_admin": false,
+        "password": "pbkdf2_sha256$12000$YjSj4nJ7tZAc$tVOvaizA423unBts5UWV+kTh/ghqhcPmE7pmY6Owr1Q=",
+        "email": "cbtaster1@localhost",
+        "account_status": "Active",
+        "account_type": "Taster"
+    },
+    "model": "authentication.account",
+    "pk": 7
 }
 ]

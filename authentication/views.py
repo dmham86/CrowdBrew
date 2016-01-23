@@ -1,6 +1,8 @@
 from rest_framework import permissions, viewsets, status, views
 from rest_framework.response import Response
 
+import logging
+
 from authentication.models import Account
 from authentication.permissions import IsAccountOwner
 from authentication.serializers import AccountSerializer
@@ -19,6 +21,8 @@ from registration.models import RegistrationProfile
 from registration.views import ActivationView as BaseActivationView
 from registration.views import RegistrationView as BaseRegistrationView
 from registration.users import UserModel
+
+logger = logging.getLogger("authentication.views")
 
 class AccountViewSet(viewsets.ModelViewSet):
     lookup_field = 'username'

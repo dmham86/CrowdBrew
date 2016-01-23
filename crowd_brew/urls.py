@@ -3,8 +3,8 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 
-from . import views
 from authentication.views import AccountSerializer
+from .views import *
 from .models import *
 from .serializers import *
 
@@ -12,19 +12,20 @@ from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework_nested.routers import NestedSimpleRouter
 
-from authentication.views import AccountViewSet, IndexView, LoginView, LogoutView
+from authentication.views import IndexView, LoginView, LogoutView
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'accounts', AccountViewSet)
-router.register(r'brewer', views.BrewerViewSet)
-router.register(r'brews', views.BrewViewSet, 'Brew')
-router.register(r'tastings', views.TastingViewSet)
+router.register(r'registration', RegistrationViewSet)
+router.register(r'brewer', BrewerViewSet)
+router.register(r'brews', BrewViewSet, 'Brew')
+router.register(r'tastings', TastingViewSet)
 
 accounts_router = NestedSimpleRouter(
     router, r'accounts', lookup='account'
 )
-accounts_router.register(r'brews', views.AccountBrewsViewSet)
+accounts_router.register(r'brews', AccountBrewsViewSet)
 
 urlpatterns = patterns(
     '',

@@ -1,15 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from rest_framework import permissions, viewsets, filters
+from django.conf import settings
+import json
+
+from rest_framework import permissions, viewsets, filters, status
 from rest_framework.response import Response
 
 import pdb
+import logging
 
 from .serializers import *
 from .models import *
 from authentication.permissions import *
+from authentication.models import Account
+from authentication.serializers import AccountSerializer
+from authentication.views import AccountViewSet
 from .permissions import IsBrewOwner
+
+logger = logging.getLogger("crowd_brew.views")
 
 class BreweryViewSet(viewsets.ModelViewSet):
     queryset = Brewery.objects.all()
@@ -83,3 +92,37 @@ class TastingViewSet(viewsets.ModelViewSet):
         instance = serializer.save(user=self.request.user, brew=Brew.objects.get(id=self.request.data['brew_id']))
 
         return super(TastingViewSet, self).perform_create(serializer)
+
+class RegistrationViewSet(viewsets.ModelViewSet):
+    lookup_field = 'username'
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
+
+    SEND_ACTIVATION_EMAIL = getattr(settings, 'SEND_ACTIVATION_EMAIL', True)
+
+    def get_permissions(self):
+        if self.request.method in permissions.SAFE_METHODS:
+            return (permissions.AllowAny(),)
+
+        if self.request.method == 'POST':
+            return (permissions.AllowAny(),)
+
+        return (permissions.IsAuthenticated(), IsAccountOwner(),)
+
+    def create(self, request):
+        registrationResponse = AccountViewSet().create(request=request)
+        account_data = registrationResponse.data
+        if registrationResponse.status_code == status.HTTP_201_CREATED and request.data['account_type'] == "Brewer":
+            logger.debug(request.data['account_type'])
+            logger.debug(request.data['brewery_name'])
+            brewery_data = {"name" : request.data['brewery_name'], "description": ""}
+            logger.debug(brewery_data)
+            brewery_serializer = BrewerySerializer(data=brewery_data)
+            brewery_instance = {}
+            if brewery_serializer.is_valid():
+                #TODO: Create brewery and brewer
+                brewery_instance = brewery_serializer.save()
+                brewer = Brewer.objects.create(user=Account.objects.get(id=account_data['id']), brewery=brewery_instance)
+                return Response({"account": account_data, "brewer": BrewerSerializer(brewer).data}, status.HTTP_201_CREATED)
+            return Response({"account": account_data, "brewery": brewery_serializer.data}, status.HTTP_201_CREATED)
+        return registrationResponse

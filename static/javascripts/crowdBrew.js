@@ -7,6 +7,7 @@
       'angularAwesomeSlider',
       'crowdBrew.config',
       'crowdBrew.routes',
+      'crowdBrew.registration',
       'crowdBrew.layout',
       'crowdBrew.brews',
       'crowdBrew.tastings',
@@ -32,5 +33,4 @@
     $http.defaults.xsrfHeaderName = 'X-CSRFToken';
     $http.defaults.xsrfCookieName = 'csrftoken';
   }
-
 })();

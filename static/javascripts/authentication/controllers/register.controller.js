@@ -1,20 +1,20 @@
 /**
 * Register controller
-* @namespace thinkster.authentication.controllers
+* @namespace crowdBrew.registration.controllers
 */
 (function () {
   'use strict';
 
   angular
-    .module('thinkster.authentication.controllers')
-    .controller('RegisterController', RegisterController);
+    .module('crowdBrew.registration.controllers')
+    .controller('RegistrationController', RegistrationController);
 
-  RegisterController.$inject = ['$location', '$scope', 'Authentication'];
+  RegistrationController.$inject = ['$location', '$scope', 'Registration', 'Authentication'];
 
   /**
-  * @namespace RegisterController
+  * @namespace RegistrationController
   */
-  function RegisterController($location, $scope, Authentication) {
+  function RegistrationController($location, $scope, Registration, Authentication) {
     var vm = this;
 
     vm.register = register;
@@ -22,10 +22,10 @@
     /**
     * @name register
     * @desc Register a new user
-    * @memberOf thinkster.authentication.controllers.RegisterController
+    * @memberOf crowdBrew.registration.controllers.RegistrationController
     */
     function register() {
-      Authentication.register(vm.email, vm.password, vm.username, vm.account_type).then(
+      Registration.register(vm.email, vm.password, vm.username, vm.account_type, vm.brewery_name).then(
           function(data){vm.success = true;},
           function(data){vm.error = data;}
       );
@@ -36,7 +36,7 @@
     /**
      * @name activate
      * @desc Actions to be performed when this controller is instantiated
-     * @memberOf thinkster.authentication.controllers.RegisterController
+     * @memberOf crowdBrew.registration.controllers.RegistrationController
      */
     function activate() {
       // If the user is authenticated, they should not be here.

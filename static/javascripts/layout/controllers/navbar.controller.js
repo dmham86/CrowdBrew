@@ -18,6 +18,7 @@
     var vm = this;
 
     vm.isAuthenticated = Authentication.isAuthenticated();
+    vm.isBrewer = isBrewer;
 
     vm.logout = logout;
     vm.syncAuth = syncAuth;
@@ -42,6 +43,15 @@
       else {
         Authentication.unauthenticate();
       }
+    }
+
+    /**
+    * @name logout
+    * @desc Log the user out
+    * @memberOf thinkster.layout.controllers.NavbarController
+    */
+    function isBrewer() {
+      return Authentication.isAuthenticated() && Authentication.getAuthenticatedAccount().account_type==="Brewer";
     }
   }
 })();

@@ -144,8 +144,34 @@ REST_FRAMEWORK = {
     )
 }
 
+# logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'authentication': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+        'crowd_brew': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        }
+    },
+}
+
 # Django Registration
 ACCOUNT_ACTIVATION_DAYS = 5 # 5 day activation window
 EMAIL_HOST = 'crowdbrew.local'
+EMAIL_PORT = 1025
 DEFAULT_FROM_EMAIL = 'webmaster@crowdbrew.local'
 LOGIN_REDIRECT_URL = '/'

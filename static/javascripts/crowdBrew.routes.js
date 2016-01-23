@@ -16,6 +16,10 @@
       controller: 'IndexController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/layout/index.html'
+    }).when('/register', {
+      controller: 'RegistrationController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/registration/register.html'
     }).when('/user/:username', {
       controller: 'ProfileController',
       controllerAs: 'vm',

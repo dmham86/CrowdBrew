@@ -17,7 +17,7 @@ class AccountManager(BaseUserManager):
             raise ValueError('Users must have a password')
 
         account = self.model(
-            email=self.normalize_email(email), username=kwargs.get('username')
+            email=self.normalize_email(email), username=kwargs.get('username'), account_type=kwargs.get('account_type')
         )
 
         account.set_password(password)
@@ -46,6 +46,7 @@ class Account(AbstractBaseUser):
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
     tagline = models.CharField(max_length=140, blank=True)
+    account_type = models.CharField(max_length=20, blank=True)
 
     is_admin = models.BooleanField(default=False)
 
