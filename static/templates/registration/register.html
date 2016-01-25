@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4">
     <h1>Register</h1>
 
-    <div class="well">
+    <div class="well" spinner="registerSpinner">
       <form role="form" ng-submit="vm.register()" ng-show="!vm.success">
         <div class="alert alert-danger" ng-show="vm.error" ng-bind="vm.error"></div>
 

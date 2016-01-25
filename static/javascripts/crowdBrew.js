@@ -8,6 +8,7 @@
       'crowdBrew.config',
       'crowdBrew.routes',
       'crowdBrew.registration',
+      'crowdBrew.common',
       'crowdBrew.layout',
       'crowdBrew.brews',
       'crowdBrew.tastings',

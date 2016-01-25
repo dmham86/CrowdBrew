@@ -4,7 +4,9 @@
   angular
     .module('crowdBrew.registration', [
       'crowdBrew.registration.controllers',
-      'crowdBrew.registration.services'
+      'crowdBrew.registration.services',
+      'crowdBrew.common',
+      'cgBusy'
     ]);
 
   angular

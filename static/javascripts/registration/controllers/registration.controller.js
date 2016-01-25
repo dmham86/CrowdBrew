@@ -9,12 +9,12 @@
     .module('crowdBrew.registration.controllers')
     .controller('RegistrationController', RegistrationController);
 
-  RegistrationController.$inject = ['$location', '$scope', 'Registration', 'Authentication'];
+  RegistrationController.$inject = ['$location', '$scope', 'Registration', 'Authentication', 'SpinnerService'];
 
   /**
   * @namespace RegistrationController
   */
-  function RegistrationController($location, $scope, Registration, Authentication) {
+  function RegistrationController($location, $scope, Registration, Authentication, SpinnerService) {
     var vm = this;
 
     vm.register = register;
@@ -25,7 +25,9 @@
     * @memberOf crowdBrew.registration.controllers.RegistrationController
     */
     function register() {
-      Registration.register(vm.email, vm.password, vm.username, vm.account_type, vm.brewery_name).then(
+      var registerPromise = Registration.register(vm.email, vm.password, vm.username, vm.account_type, vm.brewery_name);
+      SpinnerService.spin(registerPromise, 'registerSpinner');
+      registerPromise.then(
           function(data){vm.success = true;},
           function(data){vm.error = data;}
       );
